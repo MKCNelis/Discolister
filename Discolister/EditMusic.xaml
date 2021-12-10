@@ -1,0 +1,36 @@
+﻿<Window x:Class="Discolister.EditMusic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Discolister"
+        mc:Ignorable="d"
+        Title="EditMusic" Height="450" Width="800">
+    <Grid  Height="350" Width="525" Background="DarkCyan">
+        <Grid Margin="31,0,29,23" Background="White" Height="264" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="252*" />
+                <!--   <RowDefinition Height="12*" />-->
+            </Grid.RowDefinitions>
+            <TextBlock Height="20" HorizontalAlignment="Left" Margin="67,0,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="247"  OpacityMask="Crimson" Foreground="#FFE5572C" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlocksongName" Text="sSongName:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,50,0,0" Name="txtBlockSongSummary" Text="sSongSummary" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,80,0,0" Name="txtBlockAlbum" Text="sAlbumTitle:" VerticalAlignment="Top" Width="110"  />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,110,0,0" Name="txtBlockSongplace" Text="sSongPath:" VerticalAlignment="Top" Width="110"  />
+            
+            <!--Texbox V-->
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="_txtsSongName" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,50,0,0" Name="_txtsSongSummary" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,80,0,0" Name="_txtsAlbumTitle" VerticalAlignment="Top" Width="222" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,110,0,0" Name="_txtsSongPath" VerticalAlignment="Top" Width="222" />
+            <!--UndeScore is to Diffenanciiate from original-->
+
+
+            <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="183,204,0,0" Name="EditSongSubmit" VerticalAlignment="Top" Width="70" Click="EditSongSubmit_Click" />
+            <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="259,204,0,0" Name="RegisterSongReset" VerticalAlignment="Top" Width="70" Click="RegisterSongReset_Click"  />
+            <Button Content="Cancel" HorizontalAlignment="Right" Margin="0,204,60,37" Name="RegisterSongCancel" Width="70" Click="RegisterSongCancel_Click"  />
+            <Button Content="delete" HorizontalAlignment="Right" Margin="0,204,363,37" Name="RegisterSongDelete" Width="70" Click="RegisterSongDelete_Click" />
+
+        </Grid>
+    </Grid>
+</Window>
