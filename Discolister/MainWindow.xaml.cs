@@ -1,4 +1,5 @@
 ﻿using Discolister.Classes;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,44 @@ namespace Discolister
     /// </summary>
     public partial class MainWindow : Window
     {
-        Users users;
-        public MainWindow()
+        readonly Users users;
+        public MainWindow(Classes.Users Getusers)
         {
             InitializeComponent();
+            users();
         }
-        public TextBox txtUsername { get; private set; }
-        public TextBox txtPassword { get; private set; }
+     
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-  //if (Password == txtPassword || Username == txtUsername)
+            var sUsername = txtUsername.Text;
+            var sPassword = txtPassword.Text;
+
+            // check if the cridentials are alright
+            bool userfound = Users.(users => users.Name == eUsername && users.Password == ePassword);
+            if (sUsername == users.eUserName || sPassword == users.ePassword )
             {
-                MenuScreen menuScreen = new MenuScreen();
-                menuScreen.ShowDialog();
+                GrantedAcces();
+              
+            } else {
+                Messagebox.Text = " inlog has failed"; //displayed message if login has faied
             }
+                
         }
+        /// <summary>
+        ///  thlogin has to check if the cridentials are correct an coserpond with users 
+        /// <summary>
+
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.ShowDialog();
+        }
+
+        public void GrantedAcces() 
+        {
+        MenuScreen menuScreen = new MenuScreen();
+            menuScreen.ShowDialog();
         }
     }
 }

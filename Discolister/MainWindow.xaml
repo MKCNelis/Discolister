@@ -21,10 +21,10 @@
                 <!-- login i/n form region-->
         </TextBlock>
         
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" Name="Username" Text="Name" VerticalAlignment="Top" Width="247" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,168,0,0" Name="Password" Text="Password" VerticalAlignment="Top" Width="247" />
-        <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,211,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="Login_Click" />
-        <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="118,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" Name="eUsername" Text="Name" VerticalAlignment="Top" Width="247" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,168,0,0" Name="ePassword" Text="Password" VerticalAlignment="Top" Width="247" />
+        <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,211,0,0" Name="login" VerticalAlignment="Top" Width="104" Click="Login_Click" />
+        <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="Messagebox" VerticalAlignment="Top" Width="247" Margin="118,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
         <!-- end login form region-->
     </Grid>
 </Window>

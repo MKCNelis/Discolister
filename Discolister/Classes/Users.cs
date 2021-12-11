@@ -17,4 +17,5 @@ namespace Discolister.Classes
         public string eEmail { get; set; }
         public string ePassword { get; set; }   
     }
+
 }

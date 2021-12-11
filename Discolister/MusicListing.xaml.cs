@@ -36,10 +36,10 @@ namespace Discolister
                 connection.CreateTable<Songs>();
                songs = (connection.Table<Songs>().ToList()).OrderBy(c => c.sSongName).ToList();
             }
-            // checks if the list is not empty show in the LstContacslist
+            // checks if the list is not empty show in the LstSongslist
             if (songs != null)
             {
-                // shows where the contacts in the ListView
+                // shows where the songss in the ListView
                 LstSongslist.ItemsSource = songs;
             }
         }
