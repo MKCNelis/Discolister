@@ -14,7 +14,7 @@ namespace Discolister
     public partial class App : Application
     {
         //name
-        static string sDatabaseName = "Discolist.db";
+        static string sDatabaseName = "./Discolist.db";
         //location
         static string sFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         //input to database

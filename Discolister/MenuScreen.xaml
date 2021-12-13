@@ -23,7 +23,7 @@
                         <Button Name="btnPause" Margin="5,0" Click="btnPause_Click">Pause</Button>
                         <Button Name="btnStop" Click="btnStop_Click">Stop</Button>
                     </WrapPanel>
-                
+                 <!---->
                     <ListView Margin="0,5,0,0"  
                       Height="280" 
                       x:Name="LstSongslist"

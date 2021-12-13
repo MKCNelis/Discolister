@@ -22,34 +22,33 @@ namespace Discolister
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Users users;
-        public MainWindow(Classes.Users Getusers)
+     
+        public MainWindow()
         {
             InitializeComponent();
-            users();
+            connection.CreateTable<Users>();
+            connection.CreateTable<Songs>();
+            connection.CreateTable<Albums>();
+            connection.CreateTable<Bands>();
         }
-     
-
+        SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            var sUsername = txtUsername.Text;
-            var sPassword = txtPassword.Text;
-
-            // check if the cridentials are alright
-            bool userfound = Users.(users => users.Name == eUsername && users.Password == ePassword);
-            if (sUsername == users.eUserName || sPassword == users.ePassword )
+            connection.Table<Users>().ToList().ForEach((each) =>
             {
-                GrantedAcces();
-              
-            } else {
-                Messagebox.Text = " inlog has failed"; //displayed message if login has faied
-            }
-                
-        }
-        /// <summary>
-        ///  thlogin has to check if the cridentials are correct an coserpond with users 
-        /// <summary>
 
+                // check if the cridentials are alright
+                if (each.eUserName == txtUsername.Text || each.ePassword == txtPassword.Text)
+                {
+                    GrantedAcces(); return;
+                }
+                else
+                {
+                    Messagebox.Text = " inlog has failed"; //displayed message if login has faied
+                }
+            });
+          }
+        // butti to go to Registation window  new
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             UserRegistration userRegistration = new UserRegistration();

@@ -226,6 +226,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Audio\I%27ve No More F___s To Give!.mp3" />
     <Content Include="Audio\Rick_Astley_-_Never_Gonna_Give_You_Up_Qoret.com.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

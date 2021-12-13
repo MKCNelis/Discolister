@@ -22,53 +22,57 @@ namespace Discolister
     /// </summary>
     public partial class MenuScreen : Window
     {
-		private MediaPlayer mediaPlayer = new MediaPlayer();
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         List<Songs> songs;
         public MenuScreen()
-		{
-			InitializeComponent();
-			//======================  musi/c player controls==========================================================
-			OpenFileDialog openFileDialog = new OpenFileDialog(); // open a 
-			openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
-			if (openFileDialog.ShowDialog() == true)
-				mediaPlayer.Open(new Uri(openFileDialog.FileName));
-
-			DispatcherTimer timer = new DispatcherTimer();
-			timer.Interval = TimeSpan.FromSeconds(1);
-			//timer.Tick += timer_Tick;
-			timer.Start();
-		}
-
-		/*void timer_Tick(object sender, EventArgs e)
-		{
-			if (mediaPlayer.Source != null)
-				lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
-			else
-				lblStatus.Content = "No file selected..."; // if no file is found display message
-		}*/
-		//if audio is loaden playbutton
-		private void btnPlay_Click(object sender, RoutedEventArgs e)
-		{
-			mediaPlayer.Play();
-		}
-		//if audio is loaden pause button
-
-		private void btnPause_Click(object sender, RoutedEventArgs e)
-		{
-			mediaPlayer.Pause();
-		}
-		//if audio is loaden stopbutton
-
-		private void btnStop_Click(object sender, RoutedEventArgs e)
-		{
-			mediaPlayer.Stop();
-		}
-		//====================== end of musi/c player controls==========================================================
-
-		//admin screenbutton
-
-		private void admin_Click(object sender, RoutedEventArgs e)
         {
+            InitializeComponent();
+            songs = new List<Songs>();
+            ReadDatabase();
+
+            //======================  musi/c player controls==========================================================
+            OpenFileDialog openFileDialog = new OpenFileDialog(); // open a 
+            openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
+            if (openFileDialog.ShowDialog() == true)
+                mediaPlayer.Open(new Uri(openFileDialog.FileName));
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (mediaPlayer.Source != null)
+                lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
+            else
+                lblStatus.Content = "No file selected..."; // if no file is found display message
+        }
+        //if audio is loaden playbutton
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Play();
+        }
+        //if audio is loaden pause button
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Pause();
+        }
+        //if audio is loaden stopbutton
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
+        }
+        //====================== end of musi/c player controls==========================================================
+
+        //admin screenbutton
+
+        private void admin_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
             Close();
             AdminScreen adminScreen = new AdminScreen();
             adminScreen.ShowDialog();
@@ -80,14 +84,13 @@ namespace Discolister
             using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(App.sDataBasePath))
             {
                 connection.CreateTable<Songs>();
-                songs = (connection.Table<Songs>().ToList()).OrderBy(c => c.sSongName).ToList();
+                songs = (connection.Table<Songs>()).OrderBy(c => c.sSongName).ToList();
             }
-            // checks if the list is not empty show in the LstContacslist
-            if (songs != null)
-            {
-                // shows where the contacts in the ListView
+            // checks if the list is not empty show in the LstSongslist
+         
+                // shows where the songss in the ListView
                 LstSongslist.ItemsSource = songs;
-            }
+            
         }
 
 
@@ -98,12 +101,23 @@ namespace Discolister
             //update lint to update NewContactDetailWindow
             if (selectedSongs != null)
             {
-                mediaPlayer.Open(new Uri(selectedSongs.sSongPath));
+                 
+                //selectedSongs.sSongPath.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
+                //if (openFileDialog.ShowDialog() == true)
+                    //mediaPlayer.Open(new Uri(openFileDialog.FileName));
+                  
+                    mediaPlayer.Open(new Uri(selectedSongs.sSongPath, UriKind.Relative));
+
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer_Tick;
+                timer.Start();
 
             }
+
+
+
         }
-
-
-
+    
     }
 }
