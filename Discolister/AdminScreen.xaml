@@ -7,21 +7,15 @@
         mc:Ignorable="d"
         Title="AdminScreen" Height="450" Width="800">
 
-        <Grid Background="DarkCyan" Margin="10">
-            <Grid Background="Gray" Margin="5,5,5,600">
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" x:Name="WelcomeHeading" Text="Welcome:" VerticalAlignment="Top" FontSize="17" FontStretch="ExtraCondensed"/>
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="90,10,0,0" x:Name="TextBlockName"  VerticalAlignment="Top" FontSize="15" FontStretch="ExtraCondensed" />
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="1698,0,0,0" x:Name="textBlockSearch" VerticalAlignment="Top" Width="46" RenderTransformOrigin="0.551,-1.652" ><Run Text="searc"/><Run Text="h:"/></TextBlock>
-            </Grid>
-           
-                <StackPanel Margin="0,37,25.333,25">
+    <Grid Background="DarkCyan" Margin="10">
+        <StackPanel Margin="0,37,25.333,25">
                     
-                        <Button Name="MusicListing" Margin="5" Click="MusicListing_Click">musiclisting</Button>
-            <Button Name="AlbumListing" Margin="5" Click="AlbumListing_Click">albumlisting</Button>
-                        <Button Name="ArtistListing" Margin="5"  Click="ArtistListing_Click">artistlisting</Button>
+                        <Button Name="MusicListing" Margin="5" Click="MusicListing_Click" Width="175">musiclisting</Button>
+                        <Button Name="AlbumListing" Margin="5" Click="AlbumListing_Click" Width="175">albumlisting</Button>
+                        <Button Name="ArtistListing" Margin="5"  Click="ArtistListing_Click" Width="175">artistlisting</Button>
                         
                    
-                </StackPanel>
+         </StackPanel>
           
 
         </Grid>

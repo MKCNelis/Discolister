@@ -45,9 +45,13 @@ namespace Discolister
         void timer_Tick(object sender, EventArgs e)
         {
             if (mediaPlayer.Source != null)
-                lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
+            {
+              //  lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
+            }
             else
+            {
                 lblStatus.Content = "No file selected..."; // if no file is found display message
+            }
         }
         //if audio is loaden playbutton
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -101,17 +105,17 @@ namespace Discolister
             //update lint to update NewContactDetailWindow
             if (selectedSongs != null)
             {
-                 
-                //selectedSongs.sSongPath.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
-                //if (openFileDialog.ShowDialog() == true)
-                    //mediaPlayer.Open(new Uri(openFileDialog.FileName));
-                  
-                    mediaPlayer.Open(new Uri(selectedSongs.sSongPath, UriKind.Relative));
 
-                DispatcherTimer timer = new DispatcherTimer();
+                //selectedSongs.sSongPath.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
+                // if (openFileDialog.ShowDialog() == true)
+                mediaPlayer.Open(new Uri(selectedSongs.sSongPath));
+                  
+                   // mediaPlayer.Open(new Uri(selectedSongs.sSongPath, UriKind.Relative));
+
+              /*  DispatcherTimer timer = new DispatcherTimer();
                 timer.Interval = TimeSpan.FromSeconds(1);
                 timer.Tick += timer_Tick;
-                timer.Start();
+                timer.Start();*/
 
             }
 
