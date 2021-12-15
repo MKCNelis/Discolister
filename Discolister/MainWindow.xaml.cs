@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,10 +27,7 @@ namespace Discolister
         public MainWindow()
         {
             InitializeComponent();
-            connection.CreateTable<Users>();
-            connection.CreateTable<Songs>();
-            connection.CreateTable<Albums>();
-            connection.CreateTable<Bands>();
+          
         }
         SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -38,14 +36,21 @@ namespace Discolister
             {
 
                 // check if the cridentials are alright
-                if (each.eUserName == txtUsername.Text || each.ePassword == txtPassword.Text)
+                if (each.eUserName == txtUsername.Text && each.ePassword == txtPassword.Text)
                 {
+
+                    
+             /*   }
+                else if (!Regex.IsMatch(each.eUserName, int.Users.User_ID == each.ePassword, int.Users.User_ID))
+                {*/
                     GrantedAcces(); return;
+
                 }
                 else
                 {
-                    Messagebox.Text = " inlog has failed"; //displayed message if login has faied
+                    Messagebox.Text = " inlog has failed"; //displayed message if login has failed
                 }
+                  
             });
           }
         // butti to go to Registation window  new
