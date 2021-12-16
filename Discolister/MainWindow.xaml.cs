@@ -38,12 +38,11 @@ namespace Discolister
                 // check if the cridentials are alright
                 if (each.eUserName == txtUsername.Text && each.ePassword == txtPassword.Text)
                 {
-
+                    //========================= user id Saving  to get uorer or admin ===== 
                     
-             /*   }
-                else if (!Regex.IsMatch(each.eUserName, int.Users.User_ID == each.ePassword, int.Users.User_ID))
-                {*/
-                    GrantedAcces(); return;
+                     
+                    //=========================
+                GrantedAcces(); return;
 
                 }
                 else

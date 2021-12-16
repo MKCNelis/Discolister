@@ -25,11 +25,12 @@ namespace Discolister
         private MediaPlayer mediaPlayer = new MediaPlayer();
         List<Songs> songs;
         public MenuScreen()
+
         {
             InitializeComponent();
             songs = new List<Songs>();
             ReadDatabase();
-
+           
             //======================  musi/c player controls==========================================================
             OpenFileDialog openFileDialog = new OpenFileDialog(); // open a 
             openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
@@ -46,7 +47,7 @@ namespace Discolister
         {
             if (mediaPlayer.Source != null)
             {
-              //  lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
+              lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
             }
             else
             {
@@ -76,10 +77,13 @@ namespace Discolister
 
         private void admin_Click(object sender, RoutedEventArgs e)
         {
-            mediaPlayer.Stop();
-            Close();
-            AdminScreen adminScreen = new AdminScreen();
-            adminScreen.ShowDialog();
+            //if (Users.User_ID == 0)
+            {
+                mediaPlayer.Stop();
+                Close();
+                AdminScreen adminScreen = new AdminScreen();
+                adminScreen.ShowDialog();
+            }
         }
 
         void ReadDatabase()
@@ -87,6 +91,10 @@ namespace Discolister
             // connects the strDatabasePath
             using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(App.sDataBasePath))
             {
+                //user user id WIP
+
+
+                //Song
                 connection.CreateTable<Songs>();
                 songs = (connection.Table<Songs>()).OrderBy(c => c.sSongName).ToList();
             }
@@ -110,18 +118,19 @@ namespace Discolister
                 // if (openFileDialog.ShowDialog() == true)
                 mediaPlayer.Open(new Uri(selectedSongs.sSongPath));
                   
-                   // mediaPlayer.Open(new Uri(selectedSongs.sSongPath, UriKind.Relative));
+                   mediaPlayer.Open(new Uri(selectedSongs.sSongPath, UriKind.Relative));
 
-              /*  DispatcherTimer timer = new DispatcherTimer();
+              DispatcherTimer timer = new DispatcherTimer();
                 timer.Interval = TimeSpan.FromSeconds(1);
                 timer.Tick += timer_Tick;
-                timer.Start();*/
+                timer.Start();
 
             }
 
 
 
         }
+
     
     }
 }
