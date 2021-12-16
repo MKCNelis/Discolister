@@ -46,7 +46,7 @@ namespace Discolister
         {
             if (mediaPlayer.Source != null)
             {
-              //  lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
+                lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss")); //format time as minutes an seconds
             }
             else
             {
