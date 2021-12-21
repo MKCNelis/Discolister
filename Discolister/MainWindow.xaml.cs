@@ -31,20 +31,14 @@ namespace Discolister
         }
         SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
         private void Login_Click(object sender, RoutedEventArgs e)
-        {
+        { //connection to database
             connection.Table<Users>().ToList().ForEach((each) =>
             {
 
                 // check if the cridentials are alright
                 if (each.eUserName == txtUsername.Text && each.ePassword == txtPassword.Text)
                 {
-
-                    
-             /*   }
-                else if (!Regex.IsMatch(each.eUserName, int.Users.User_ID == each.ePassword, int.Users.User_ID))
-                {*/
                     GrantedAcces(); return;
-
                 }
                 else
                 {
@@ -53,14 +47,14 @@ namespace Discolister
                   
             });
           }
-        // butti to go to Registation window  new
+        // button to go to Registation window  new
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.ShowDialog();
         }
 
-        public void GrantedAcces() 
+        public void GrantedAcces() // will be called if login is succesful
         {
         MenuScreen menuScreen = new MenuScreen();
             menuScreen.ShowDialog();

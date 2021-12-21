@@ -14,7 +14,6 @@
                Grid.Row="0" Content="CRUD Application using EntityFrameworkCore and SQLite"/>
         <!--title-->
 
-        <!--#region song CRUD-->
 
         <!--   list views post  -->
         <ListView Margin="0,5,0,0"  
@@ -43,7 +42,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid>
+        <Grid><!--add button-->
             <Button Content="AddBand" Height="23" HorizontalAlignment="Left" Name="AddArtist" VerticalAlignment="Top" Width="70" Click="AddArtist_Click"  />
 
         </Grid>

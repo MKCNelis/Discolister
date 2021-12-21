@@ -30,13 +30,13 @@ namespace Discolister
             Songs songs = new Songs()
             {
 
-
+                // values that will be saved in ti the DB
                 sSongName = txtsSongName.Text,
                 sSongSummary = txtsSongSummary.Text,
                 sAlbumTitle = txtsAlbumTitle.Text
 
             };
-            //Destanation
+            //Destanation is defind in app.cs
             using (SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath))
             {
 
@@ -55,20 +55,20 @@ namespace Discolister
 
             }
 
-            Close();
+            Close(); //closes screen
 
         }
 
         private void RegisterSongReset_Click(object sender, RoutedEventArgs e)
         {
-            {
+            { // call reset fuction
                 Reset();
             }
         }
 
         private void Reset()
         {
-
+            // empty the text boxes
             txtsSongName.Text = "";
             txtsSongSummary.Text = "";
             txtsAlbumTitle.Text = "";
@@ -76,7 +76,7 @@ namespace Discolister
         }
 
         private void RegisterSongCancel_Click(object sender, RoutedEventArgs e)
-        {
+        { // close actions on screen by closing the screen
             Close();
         }
     } 

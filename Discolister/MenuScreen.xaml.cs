@@ -31,14 +31,14 @@ namespace Discolister
             ReadDatabase();
 
             //======================  musi/c player controls==========================================================
-            OpenFileDialog openFileDialog = new OpenFileDialog(); // open a 
+            OpenFileDialog openFileDialog = new OpenFileDialog(); // open the file explorer to get an audio File 
             openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*"; // filter  file type 
-            if (openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == true) 
                 mediaPlayer.Open(new Uri(openFileDialog.FileName));
 
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(1); //converts tim to minutes and seconds
+            timer.Tick += timer_Tick; //gets the timer to count down duration
             timer.Start();
         }
 
@@ -76,7 +76,7 @@ namespace Discolister
 
         private void admin_Click(object sender, RoutedEventArgs e)
         {
-            mediaPlayer.Stop();
+            mediaPlayer.Stop();// stops media if  admin goes to admin menu
             Close();
             AdminScreen adminScreen = new AdminScreen();
             adminScreen.ShowDialog();
@@ -97,7 +97,7 @@ namespace Discolister
             
         }
 
-
+        //WIP  to get switch the uri for a song from the entry in the database from chosen song in the list view
         private void LstSongslist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //which contact is selected
@@ -116,7 +116,7 @@ namespace Discolister
                 timer.Interval = TimeSpan.FromSeconds(1);
                 timer.Tick += timer_Tick;
                 timer.Start();*/
-
+    
             }
 
 

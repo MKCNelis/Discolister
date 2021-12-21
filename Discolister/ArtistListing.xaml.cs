@@ -59,7 +59,7 @@ namespace Discolister
         }
 
         private void AddArtist_Click(object sender, RoutedEventArgs e)
-        {
+        {// go to add Artist showed by a Dialogbox
             AddArtist addArtist = new AddArtist();
             addArtist.ShowDialog(); 
         }

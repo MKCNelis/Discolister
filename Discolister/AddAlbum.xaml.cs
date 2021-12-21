@@ -67,7 +67,7 @@ namespace Discolister
         }
 
         private void RegisterAlbumReset_Click(object sender, RoutedEventArgs e)
-        { // jusr close the window to cancel everything
+        { // just close the window to cancel everything
             Close();
         }
 

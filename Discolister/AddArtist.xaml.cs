@@ -29,7 +29,7 @@ namespace Discolister
         private void RegisterArtistSubmit_Click(object sender, RoutedEventArgs e)
         {
             Bands bands = new Bands()
-            {
+            { // data that will be stored
                sBandName = txtsBandName.Text,
                sBandSummary = txtsBandSummary.Text,
                sSongTitle = txtSongName.Text
@@ -59,7 +59,7 @@ namespace Discolister
             }
             //function of reset
             void Reset()
-            {
+            { // reset the fields
                 txtsBandName.Text = "";
                 txtsBandSummary.Text = "";
                 txtSongName.Text = "";
@@ -67,7 +67,7 @@ namespace Discolister
         }
 
         private void RegisterArtistCancel_Click(object sender, RoutedEventArgs e)
-        {
+        { //cancel actions by closing screen
             Close();
 
         }
