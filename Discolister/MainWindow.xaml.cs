@@ -33,12 +33,16 @@ namespace Discolister
         private void Login_Click(object sender, RoutedEventArgs e)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 3b95cd1 (version1.0.0)
             connection.Table<Users>().ToList().ForEach((each) =>
 >>>>>>> parent of 3b95cd1 (version1.0.0)
             {
                 if (!ValidLogin)
                 {
+<<<<<<< HEAD
 <<<<<<< HEAD
                     string Username = txtUsername.Text;
                     string Password = txtPassword.Text;
@@ -56,6 +60,8 @@ namespace Discolister
                     }
                     
 =======
+=======
+>>>>>>> parent of 3b95cd1 (version1.0.0)
 
                     
              /*   }
@@ -78,6 +84,9 @@ namespace Discolister
 =======
             });
           }
+<<<<<<< HEAD
+>>>>>>> parent of 3b95cd1 (version1.0.0)
+=======
 >>>>>>> parent of 3b95cd1 (version1.0.0)
         // butti to go to Registation window  new
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -86,6 +95,7 @@ namespace Discolister
             userRegistration.ShowDialog();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         //=====================================func validi login========================
         private bool ValidLogin()
@@ -117,6 +127,8 @@ namespace Discolister
 
 
 
+=======
+>>>>>>> parent of 3b95cd1 (version1.0.0)
 =======
 >>>>>>> parent of 3b95cd1 (version1.0.0)
         public void GrantedAcces() 
