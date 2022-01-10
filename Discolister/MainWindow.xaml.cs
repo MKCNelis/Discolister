@@ -32,9 +32,14 @@ namespace Discolister
         SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+=======
+            connection.Table<Users>().ToList().ForEach((each) =>
+>>>>>>> parent of 3b95cd1 (version1.0.0)
             {
                 if (!ValidLogin)
                 {
+<<<<<<< HEAD
                     string Username = txtUsername.Text;
                     string Password = txtPassword.Text;
                     
@@ -50,12 +55,30 @@ namespace Discolister
                         }
                     }
                     
+=======
+
+                    
+             /*   }
+                else if (!Regex.IsMatch(each.eUserName, int.Users.User_ID == each.ePassword, int.Users.User_ID))
+                {*/
+                    GrantedAcces(); return;
+
+                }
+                else
+                {
+                    Messagebox.Text = " inlog has failed"; //displayed message if login has failed
+>>>>>>> parent of 3b95cd1 (version1.0.0)
                 }
             }
        
                   
+<<<<<<< HEAD
            
         }
+=======
+            });
+          }
+>>>>>>> parent of 3b95cd1 (version1.0.0)
         // butti to go to Registation window  new
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +86,7 @@ namespace Discolister
             userRegistration.ShowDialog();
         }
 
+<<<<<<< HEAD
         //=====================================func validi login========================
         private bool ValidLogin()
         {
@@ -93,6 +117,8 @@ namespace Discolister
 
 
 
+=======
+>>>>>>> parent of 3b95cd1 (version1.0.0)
         public void GrantedAcces() 
         {
         MenuScreen menuScreen = new MenuScreen();
