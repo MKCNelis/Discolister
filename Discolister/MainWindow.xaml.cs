@@ -31,30 +31,69 @@ namespace Discolister
         }
         SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
         private void Login_Click(object sender, RoutedEventArgs e)
-        { //connection to database
-            connection.Table<Users>().ToList().ForEach((each) =>
+        {
             {
-
-                // check if the cridentials are alright
-                if (each.eUserName == txtUsername.Text && each.ePassword == txtPassword.Text)
+                if (!ValidLogin)
                 {
-                    GrantedAcces(); return;
+                    string Username = txtUsername.Text;
+                    string Password = txtPassword.Text;
+                    
+                    string Statment;
+                    //DBConnections
+                    SQLiteConnection connection = new SQLiteConnection(App.sDataBasePath);
+                    {
+                        //SQLite.Open();
+                        Statment = $"SELECT EXISTS FROM Users WHERE Username='eUserName'";
+                        if((Int64) new SQLiteCommand(Statment, sSQLite).ExecuteScalar() == 0) 
+                        {
+                            
+                        }
+                    }
+                    
                 }
-                else
-                {
-                    Messagebox.Text = " inlog has failed"; //displayed message if login has failed
-                }
+            }
+       
                   
-            });
-          }
-        // button to go to Registation window  new
+           
+        }
+        // butti to go to Registation window  new
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.ShowDialog();
         }
 
-        public void GrantedAcces() // will be called if login is succesful
+        //=====================================func validi login========================
+        private bool ValidLogin()
+        {
+            string message = "Enter a ";
+            if(txtUsername.Text == "")
+            {
+                message += "Username";
+            }
+            if (txtPassword.Text == "")
+            {
+                if (txtUsername.Text == "")
+                {
+                    message += "and a ";
+                }
+                message += "password";
+                }
+                if (Message != "Enter a ")
+                {
+                    LoginLabelError.Text = Message;
+                LoginLabelError.Left = (LoginPanel.Width - LoginLabelError.Width) / 2;
+                LoginLabelError.Visible = true;
+                return false;
+            }
+            }
+        //=====================================func validi login========================
+
+
+
+
+
+        public void GrantedAcces() 
         {
         MenuScreen menuScreen = new MenuScreen();
             menuScreen.ShowDialog();
