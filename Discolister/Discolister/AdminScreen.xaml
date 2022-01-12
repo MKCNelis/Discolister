@@ -1,0 +1,23 @@
+﻿<Window x:Class="Discolister.AdminScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Discolister"
+        mc:Ignorable="d"
+        Title="AdminScreen" Height="450" Width="800">
+
+    <Grid Background="DarkCyan" Margin="10">
+        <StackPanel Margin="0,37,25.333,25">
+                    
+                        <Button Name="MusicListing" Margin="5" Click="MusicListing_Click" Width="175">musiclisting</Button>
+                        <Button Name="AlbumListing" Margin="5" Click="AlbumListing_Click" Width="175">albumlisting</Button>
+                        <Button Name="ArtistListing" Margin="5"  Click="ArtistListing_Click" Width="175">artistlisting</Button>
+                        
+                   
+         </StackPanel>
+          
+
+        </Grid>
+    
+</Window>
